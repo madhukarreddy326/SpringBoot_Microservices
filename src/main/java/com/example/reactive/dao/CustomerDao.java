@@ -43,4 +43,13 @@ public class CustomerDao {
 
 
     }
+    public Flux<Customer> getCustomerList()
+    {
+
+        return Flux.range(1,50)
+                .doOnNext(i ->System.out.println("Procesing Count in Stream Flow: "+i) )
+                .map(i -> new Customer(i,"Customer"+i));
+
+
+    }
 }
